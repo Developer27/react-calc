@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 500px;
 }
 
 .main {
@@ -11,7 +12,7 @@
   align-items: flex-start;
   justify-content: center;
   width: 400px;
-  height: 300px;
+  height: 400px;
   border: 2px solid black;
   box-sizing: border-box;
 }

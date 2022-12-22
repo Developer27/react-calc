@@ -7,6 +7,12 @@ function App() {
     <div className="main">
         <input type="text" className='search_inp' />
       <div className="numbers">
+      <div className="numbers_row">
+          <CalcButton number={'ac'}/>
+          <CalcButton number={'+/-'}/>
+          <CalcButton number={'%'}/>
+          <CalcButton number={'/'}/>
+        </div>
         <div className="numbers_row">
           <CalcButton number={7}/>
           <CalcButton number={8}/>
