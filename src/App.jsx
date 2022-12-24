@@ -1,40 +1,62 @@
 import CalcButton from './components/CalcButton/CalcButton';
 import './app.css';
+import { useState } from 'react';
+
+
+
 
 function App() {
+  const [input, setInput] = useState('0');
+  
+  const onChange = (e) => {
+    setInput(e.target.value)
+  }
+
+  const setInputValue = (val, ind) => {
+    if(ind) {
+      setInput('');
+    }
+    setInput((prev) => prev + val)
+  }
+
+  const resetVal = () => {
+    setInput('')
+  }
+
+  console.log(input)
   return (
    <div className="container">
     <div className="main">
-        <input type="text" className='search_inp' />
+        <input type="text" className='search_inp' value={input} onChange={onChange}/>
       <div className="numbers">
       <div className="numbers_row">
-          <CalcButton number={'ac'}/>
-          <CalcButton number={'+/-'}/>
-          <CalcButton number={'%'}/>
-          <CalcButton number={'/'}/>
+          <CalcButton click={resetVal} number={'ac'}/>
+          <CalcButton click={setInputValue} number={'+/-'}/>
+          <CalcButton click={setInputValue} number={'%'}/>
+          <CalcButton click={setInputValue} number={'/'}/>
         </div>
         <div className="numbers_row">
-          <CalcButton number={7}/>
-          <CalcButton number={8}/>
-          <CalcButton number={9}/>
-          <CalcButton number={'x'}/>
+          <CalcButton click={setInputValue} number={7}/>
+          <CalcButton click={setInputValue} number={8}/>
+          <CalcButton click={setInputValue} number={9}/>
+          <CalcButton click={setInputValue} number={'x'}/>
         </div>
         <div className="numbers_row">
-          <CalcButton number={4}/>
-          <CalcButton number={5}/>
-          <CalcButton number={6}/>
-          <CalcButton number={'-'}/>
+          <CalcButton click={setInputValue} number={4}/>
+          <CalcButton click={setInputValue} number={5}/>
+          <CalcButton click={setInputValue} number={6}/>
+          <CalcButton click={setInputValue} number={'-'}/>
         </div>
         <div className="numbers_row">
-          <CalcButton number={1}/>
-          <CalcButton number={2}/>
-          <CalcButton number={3}/>
-          <CalcButton number={'+'}/>
+          <CalcButton click={setInputValue} number={1}/>
+          <CalcButton click={setInputValue} number={2}/>
+          <CalcButton click={setInputValue} number={3}/>
+          <CalcButton click={setInputValue} number={'+'}/>
         </div>
         <div className="numbers_row">
-          <CalcButton number={0}/>
-          <CalcButton number={','}/>
-          <CalcButton number={'='}/>
+          <CalcButton click={setInputValue} number={0}/>
+          <CalcButton click={setInputValue} number={','}/>
+          <CalcButton click={setInputValue} number={'='} inp={input}/>
         </div>
       </div>
     </div>
